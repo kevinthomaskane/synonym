@@ -1,0 +1,133 @@
+body {
+  width: 300px;
+  max-width: 300px;
+  padding: 5px;
+  height: auto;
+  position: relative;
+}
+
+.synonym {
+  width: auto;
+  text-align: center;
+  display: inline-block;
+  margin: 10px auto;
+  border: solid 1px rgb(87, 164, 203);
+  padding: 5px;
+  margin: 5px;
+  border-radius: 4px;
+  color: rgb(87, 164, 203);
+  background-color: white;
+  font-size: 16px;
+  cursor: pointer;
+  text-decoration: none;    
+}
+
+.view-more {
+  width: auto;
+  text-align: center;
+  display: inline-block;
+  margin: 10px auto;
+  border: solid 1px rgb(87, 164, 203);
+  padding: 5px;
+  margin: 5px;
+  border-radius: 4px;
+  color: rgb(87, 164, 203);
+  background-color: white;
+  font-size: 16px;
+  cursor: pointer;
+  text-decoration: none;    
+}
+
+#getSynonyms {
+  width: 106px;
+  text-align: center;
+  display: block;
+  margin: 14px auto;
+  border: solid 1px rgb(87, 164, 203);
+  padding: 5px;
+  border-radius: 4px;
+  color: white;
+  background-color: rgb(87, 164, 203);
+  font-size: 16px;
+  cursor: pointer;
+  text-decoration: none;    
+}
+
+#getSynonyms:hover {
+    color: white;
+    box-shadow: 0 6px 12px rgb(232, 232, 232);
+    background-color: rgb(60, 155, 202);
+    transition: .3s;
+}
+
+#getSynonyms:active {
+    transform: translateY(2px);
+    box-shadow: none;
+    transition: .3s;
+}
+
+img {
+  max-width: 50%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+h3 {
+  color: rgb(87, 164, 203);
+  font-weight: 300;
+}
+
+.error-message-container {
+  display: none;
+  padding: 5px;
+  border: solid 0.5px rgb(247, 129, 129);
+  color: rgb(247, 129, 129);
+  box-shadow: 0 2px 2px rgb(232, 232, 232);
+  border-radius: 2px;
+  margin-bottom: 5px;
+}
+
+.footer-text {
+  color: black;
+  font-weight: bold;
+  font-size: 8px;
+  text-align: right;
+  margin-top: 14px;
+}
+
+.footer-text a {
+  color: rgb(87, 164, 203);
+}
+
+#synonym-input {
+  font-family: inherit;
+  color: inherit;
+  padding: 15px;
+  border-radius: 2px;
+  background-color: rgb(255, 255, 255);
+  border: solid 0.5px rgb(232, 232, 232);
+  border-bottom: solid 3px transparent;
+  width: 89%;
+  display: block;
+  transition: all 0.3s;
+  box-shadow: 0 2px 2px rgb(232, 232, 232);
+}
+
+#synonym-input:focus {
+  outline: none;
+  box-shadow: 0 4px 8px rgba(143, 143, 143, 0.8);
+  border-bottom: solid 3px rgb(87, 164, 203);
+}
+
+.selected__word {
+    font-weight: bold;
+}
+.selected__definition {
+    font-style: italic;
+    font-weight: 300;
+}
+
+.synonym-link {
+    cursor: pointer;
+}
