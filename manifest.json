@@ -2,7 +2,6 @@
   "name": "Synonym Ext",
   "version": "1.0",
   "description": "Select a word and get synonyms or antonyms",
-  "options_page": "options.html",
   "permissions": ["activeTab", "contextMenus", "storage"],
   "background": {
     "scripts": ["background.js"],
