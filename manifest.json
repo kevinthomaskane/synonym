@@ -29,5 +29,6 @@
       "js": ["contentScript.js"]
     }
   ],
+  "web_accessible_resources": ["images/synonym_logo.png"],
   "manifest_version": 2
 }

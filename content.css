@@ -1,11 +1,12 @@
 .injected-modal {
   width: 300px;
   max-width: 300px;
-  padding: 5px;
-  min-height: 300px;
+  padding: 10px;
+  height: auto;
+  max-height: 600px;
   border-radius: 4px;
-  border: solid 1px rgb(87, 164, 203);
-  box-shadow: 0 6px 12px rgb(232, 232, 232);
+  border: solid 1px rgb(192, 192, 192);
+  box-shadow: 0 6px 12px rgb(128, 127, 127);
   position: fixed;
   top: 10px;
   right: -9999px;
@@ -14,6 +15,153 @@
   backface-visibility: hidden;
   z-index: 999999;
   background-color: white;
+  overflow-y: scroll;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+a.synonym:hover {
+  color: rgb(87, 164, 203);
+  text-decoration: none;
+}
+
+a.antonym:hover {
+  color: rgba(69, 163, 69, 0.8);
+  text-decoration: none;
+}
+
+.get-synonyms-btn {
+  width: 120px;
+  text-align: center;
+  display: block;
+  margin: 14px auto;
+  border: solid 1px rgb(87, 164, 203);
+  padding: 5px;
+  border-radius: 4px;
+  color: white;
+  background-color: rgb(87, 164, 203);
+  font-size: 16px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.get-synonyms-btn:hover,
+.view-more:hover {
+  color: white;
+  box-shadow: 0 6px 12px rgb(232, 232, 232);
+  background-color: rgb(60, 155, 202);
+  transition: 0.3s;
+}
+
+.get-synonyms-btn:active,
+.view-more:active {
+  transform: translateY(2px);
+  box-shadow: none;
+  transition: 0.3s;
+}
+
+.close-modal {
+  float: right;
+  font-size: 16px;
+  color: rgb(192, 192, 192);
+  cursor: pointer;
+  padding-right: 5px;
+}
+
+.modal-logo {
+  max-width: 50%;
+  height: auto;
+  display: block;
+  margin: 10px auto;
+}
+
+.synonym {
+  width: auto;
+  text-align: center;
+  display: inline-block;
+  margin: 10px auto;
+  border: solid 1px rgb(87, 164, 203);
+  padding: 5px;
+  margin: 5px;
+  border-radius: 4px;
+  color: rgb(87, 164, 203);
+  background-color: white;
+  font-size: 16px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.antonym {
+  border: solid 1px rgba(69, 163, 69, 0.8);
+  color: rgba(69, 163, 69, 0.8);
+}
+
+.synonym-title,
+.antonym-title {
+  font-weight: bold;
+  padding-left: 5px;
+}
+
+.cs-synonym-input {
+  font-family: inherit;
+  color: inherit;
+  padding: 15px;
+  border-radius: 2px;
+  background-color: rgb(255, 255, 255);
+  border: solid 0.5px rgb(232, 232, 232);
+  border-bottom: solid 3px transparent;
+  width: 100%;
+  display: block;
+  transition: all 0.3s;
+  box-shadow: 0 2px 2px rgb(232, 232, 232);
+}
+
+.cs-synonym-input:focus {
+  outline: none;
+  box-shadow: 0 4px 8px rgba(143, 143, 143, 0.8);
+  border-bottom: solid 3px rgb(87, 164, 203);
+}
+
+.view-more {
+  width: 106px;
+  text-align: center;
+  display: block;
+  margin: 14px auto;
+  border: solid 1px rgb(87, 164, 203);
+  padding: 5px;
+  border-radius: 4px;
+  color: white;
+  background-color: rgb(87, 164, 203);
+  font-size: 16px;
+  cursor: pointer;
+  text-decoration: none;
+  margin-bottom: 20px;
+}
+
+.selected__word {
+  font-weight: bold;
+}
+
+.selected__definition {
+  font-style: italic;
+  font-weight: 300;
+}
+
+.definition__container {
+  padding-left: 5px;
+}
+
+.antonym-container {
+  position:relative;
+}
+.powered-by {
+  font-size: 10px;
+  font-weight: bold;
+  position: absolute;
+  bottom: -78px;
+  right: -5px;
 }
 
 @keyframes slide {

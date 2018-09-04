@@ -19,23 +19,32 @@ body {
   background-color: white;
   font-size: 16px;
   cursor: pointer;
-  text-decoration: none;    
+  text-decoration: none;
+}
+
+.antonym {
+  border: solid 1px rgba(69, 163, 69, .8);
+  color: rgba(69, 163, 69, .8);
+}
+
+
+.synonym-title, .antonym-title {
+  font-weight: bold;
 }
 
 .view-more {
-  width: auto;
+  width: 106px;
   text-align: center;
-  display: inline-block;
-  margin: 10px auto;
+  display: block;
+  margin: 14px auto;
   border: solid 1px rgb(87, 164, 203);
   padding: 5px;
-  margin: 5px;
   border-radius: 4px;
-  color: rgb(87, 164, 203);
-  background-color: white;
+  color: white;
+  background-color: rgb(87, 164, 203);
   font-size: 16px;
   cursor: pointer;
-  text-decoration: none;    
+  text-decoration: none;
 }
 
 #getSynonyms {
@@ -50,20 +59,22 @@ body {
   background-color: rgb(87, 164, 203);
   font-size: 16px;
   cursor: pointer;
-  text-decoration: none;    
+  text-decoration: none;
 }
 
-#getSynonyms:hover {
-    color: white;
-    box-shadow: 0 6px 12px rgb(232, 232, 232);
-    background-color: rgb(60, 155, 202);
-    transition: .3s;
+#getSynonyms:hover,
+.view-more:hover {
+  color: white;
+  box-shadow: 0 6px 12px rgb(232, 232, 232);
+  background-color: rgb(60, 155, 202);
+  transition: 0.3s;
 }
 
-#getSynonyms:active {
-    transform: translateY(2px);
-    box-shadow: none;
-    transition: .3s;
+#getSynonyms:active,
+.view-more:active {
+  transform: translateY(2px);
+  box-shadow: none;
+  transition: 0.3s;
 }
 
 img {
@@ -121,13 +132,13 @@ h3 {
 }
 
 .selected__word {
-    font-weight: bold;
+  font-weight: bold;
 }
 .selected__definition {
-    font-style: italic;
-    font-weight: 300;
+  font-style: italic;
+  font-weight: 300;
 }
 
 .synonym-link {
-    cursor: pointer;
+  cursor: pointer;
 }
