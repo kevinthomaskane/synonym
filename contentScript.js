@@ -38,6 +38,7 @@ definitionSpan.className = "selected__definition";
 //input
 const synonymInput = document.createElement("input");
 synonymInput.className = "cs-synonym-input";
+synonymInput.placeholder = "enter a word"
 
 //search button
 const getSynonymsBtn = document.createElement("button");
@@ -79,7 +80,7 @@ modal.addEventListener("click", e => {
 
 chrome.runtime.onMessage.addListener(msgObj => {
   if (msgObj) {
-    if (first){
+    if (first) {
       word = msgObj.word;
       fetchData(word);
       modal.style.visibility = "visible";
@@ -98,6 +99,23 @@ chrome.runtime.onMessage.addListener(msgObj => {
     }
   }
 });
+
+getSynonymsBtn.addEventListener("click", () => {
+  if (synonymInput.value.length > 1) {
+    const inputWord = synonymInput.value.trim();
+    fetchData(inputWord);
+  }
+});
+
+window.onkeydown = e => {
+  let key = e.which || e.keyCode;
+  if (key === 13) {
+    if (synonymInput.value.length > 1) {
+      const inputWord = synonymInput.value.trim();
+      fetchData(inputWord);
+    }
+  }
+};
 
 //helper functions
 function closeModal() {
@@ -140,7 +158,7 @@ function printAntonyms(arr, str) {
     antonym.className = "synonym antonym";
     antonym.innerHTML = arr[i];
     antonymContainer.appendChild(antonym);
-    antonymContainer.appendChild(powered_by)
+    antonymContainer.appendChild(powered_by);
     antonym.addEventListener("click", () => {
       clearContainers();
       fetchData(arr[i]);
@@ -158,8 +176,14 @@ function printAntonyms(arr, str) {
 function printInformation(str) {
   definitionContainer.innerHTML = "";
   printDefinition(str);
-  printSynonyms(synonyms, str);
-  printAntonyms(antonyms, str);
+  if (synonymContainer === undefined) {
+    printSynonyms(synonyms, str);
+    printAntonyms(antonyms, str);
+  } else {
+    clearContainers();
+    printSynonyms(synonyms, str);
+    printAntonyms(antonyms, str);
+  }
 }
 
 function clearContainers() {

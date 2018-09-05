@@ -18,7 +18,7 @@
   overflow-y: scroll;
 }
 
-a:hover {
+.injected-modal a:hover {
   text-decoration: none;
 }
 
@@ -102,6 +102,7 @@ a.antonym:hover {
 .antonym-title {
   font-weight: bold;
   padding-left: 5px;
+  font-size: 12px;
 }
 
 .cs-synonym-input {
@@ -151,6 +152,7 @@ a.antonym:hover {
 
 .definition__container {
   padding-left: 5px;
+  font-size: 12px;
 }
 
 .antonym-container {
