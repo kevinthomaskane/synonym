@@ -49,7 +49,7 @@ getSynonymsBtn.innerText = "Get Synonyms";
 const powered_by = document.createElement("p");
 powered_by.className = "powered-by";
 const link = document.createElement("a");
-link.href = "http://www.synonym.com";
+link.href = "https://www.synonym.com";
 link.target = "_blank";
 link.innerHTML = "synonym.com";
 powered_by.innerHTML = "powered by ";
@@ -168,7 +168,7 @@ function printAntonyms(arr, str) {
   viewMore = document.createElement("a");
   viewMore.className = "view-more";
   viewMore.innerHTML = "View More";
-  viewMore.href = "http://www.synonym.com/synonyms/" + str;
+  viewMore.href = "https://www.synonym.com/synonyms/" + str;
   viewMore.target = "_blank";
   modal.appendChild(viewMore);
 }
@@ -201,7 +201,7 @@ function printDefinition(str) {
 }
 
 function fetchData(query) {
-  fetch("http://www.synonym.com/autocomplete?term=" + query + "&format=json")
+  fetch("https://www.synonym.com/autocomplete?term=" + query + "&format=json")
     .then(response => {
       return response.json();
     })

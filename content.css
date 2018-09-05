@@ -16,6 +16,7 @@
   z-index: 999999;
   background-color: white;
   overflow-y: scroll;
+  overflow-x: hidden;
 }
 
 .injected-modal a:hover {
@@ -33,33 +34,33 @@ a.antonym:hover {
 }
 
 .get-synonyms-btn {
-  width: 120px;
-  text-align: center;
-  display: block;
-  margin: 14px auto;
-  border: solid 1px rgb(87, 164, 203);
-  padding: 5px;
-  border-radius: 4px;
-  color: white;
-  background-color: rgb(87, 164, 203);
-  font-size: 16px;
-  cursor: pointer;
-  text-decoration: none;
+  width: 120px !important;
+  text-align: center !important;
+  display: block !important;
+  margin: 14px auto !important;
+  border: solid 1px rgb(87, 164, 203) !important;
+  padding: 5px !important;
+  border-radius: 4px !important;
+  color: white !important;
+  background-color: rgb(87, 164, 203) !important;
+  font-size: 16px !important;
+  cursor: pointer !important;
+  text-decoration: none !important;
 }
 
 .get-synonyms-btn:hover,
 .view-more:hover {
-  color: white;
-  box-shadow: 0 6px 12px rgb(232, 232, 232);
-  background-color: rgb(60, 155, 202);
-  transition: 0.3s;
+  color: white !important;
+  box-shadow: 0 6px 12px rgb(232, 232, 232) !important;
+  background-color: rgb(60, 155, 202) !important;
+  transition: 0.3s !important;
 }
 
 .get-synonyms-btn:active,
 .view-more:active {
-  transform: translateY(2px);
-  box-shadow: none;
-  transition: 0.3s;
+  transform: translateY(2px) !important;
+  box-shadow: none !important;
+  transition: 0.3s !important;
 }
 
 .close-modal {
@@ -78,45 +79,46 @@ a.antonym:hover {
 }
 
 .synonym {
-  width: auto;
-  text-align: center;
-  display: inline-block;
-  margin: 10px auto;
-  border: solid 1px rgb(87, 164, 203);
-  padding: 5px;
-  margin: 5px;
-  border-radius: 4px;
-  color: rgb(87, 164, 203);
-  background-color: white;
-  font-size: 16px;
-  cursor: pointer;
-  text-decoration: none;
+  width: auto !important;
+  text-align: center !important;
+  display: inline-block !important;
+  margin: 10px auto !important;
+  border: solid 1px rgb(87, 164, 203) !important;
+  padding: 5px !important;
+  margin: 5px !important;
+  border-radius: 4px !important;
+  color: rgb(87, 164, 203) !important;
+  background-color: white !important;
+  font-size: 16px !important;
+  cursor: pointer !important;
+  text-decoration: none !important;
 }
 
 .antonym {
-  border: solid 1px rgba(69, 163, 69, 0.8);
-  color: rgba(69, 163, 69, 0.8);
+  border: solid 1px rgba(69, 163, 69, 0.8) !important;
+  color: rgba(69, 163, 69, 0.8) !important;
 }
 
 .synonym-title,
 .antonym-title {
-  font-weight: bold;
-  padding-left: 5px;
-  font-size: 12px;
+  font-weight: bold !important;
+  padding-left: 5px !important;
+  font-size: 12px !important;
 }
 
 .cs-synonym-input {
-  font-family: inherit;
-  color: inherit;
-  padding: 15px;
-  border-radius: 2px;
-  background-color: rgb(255, 255, 255);
-  border: solid 0.5px rgb(232, 232, 232);
-  border-bottom: solid 3px transparent;
-  width: 100%;
-  display: block;
-  transition: all 0.3s;
-  box-shadow: 0 2px 2px rgb(232, 232, 232);
+  font-family: inherit !important;
+  color: inherit !important;
+  padding: 15px !important;
+  border-radius: 2px !important;
+  font-size: 12px !important;
+  background-color: rgb(255, 255, 255) !important;
+  border: solid 0.5px rgb(232, 232, 232) !important;
+  border-bottom: solid 3px transparent !important;
+  width: 100% !important;
+  display: block !important;
+  transition: all 0.3s !important;
+  box-shadow: 0 2px 2px rgb(232, 232, 232) !important;
 }
 
 .cs-synonym-input:focus {
@@ -126,19 +128,19 @@ a.antonym:hover {
 }
 
 .view-more {
-  width: 106px;
-  text-align: center;
-  display: block;
-  margin: 14px auto;
-  border: solid 1px rgb(87, 164, 203);
-  padding: 5px;
-  border-radius: 4px;
-  color: white;
-  background-color: rgb(87, 164, 203);
-  font-size: 16px;
-  cursor: pointer;
-  text-decoration: none;
-  margin-bottom: 20px;
+  width: 106px !important;
+  text-align: center !important;
+  display: block !important;
+  margin: 14px auto !important;
+  border: solid 1px rgb(87, 164, 203) !important;
+  padding: 5px !important;
+  border-radius: 4px !important;
+  color: white !important;
+  background-color: rgb(87, 164, 203) !important;
+  font-size: 16px !important;
+  cursor: pointer !important;
+  text-decoration: none !important;
+  margin-bottom: 20px !important;
 }
 
 .selected__word {
@@ -162,7 +164,7 @@ a.antonym:hover {
   font-size: 10px;
   font-weight: bold;
   position: absolute;
-  bottom: -78px;
+  bottom: -100px;
   right: -5px;
 }
 

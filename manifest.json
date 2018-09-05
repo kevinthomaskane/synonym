@@ -1,5 +1,5 @@
 {
-  "name": "Synonym Ext",
+  "name": "Synonym",
   "version": "1.0",
   "description": "Select a word and get synonyms or antonyms",
   "permissions": ["activeTab", "contextMenus", "storage"],

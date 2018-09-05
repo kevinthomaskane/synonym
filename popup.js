@@ -47,7 +47,7 @@ window.onkeydown = e => {
 };
 
 function fetchData(query) {
-  fetch("http://www.synonym.com/autocomplete?term=" + query + "&format=json")
+  fetch("https://www.synonym.com/autocomplete?term=" + query + "&format=json")
     .then(response => {
       return response.json();
     })
