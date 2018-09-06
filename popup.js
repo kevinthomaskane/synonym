@@ -1,5 +1,6 @@
 const getSynonymsBtn = document.getElementById("getSynonyms");
 const errorContainer = document.querySelector(".error-message-container");
+const noResultsContainer = document.querySelector(".no-results-container");
 const selectedWordContainer = document.querySelector(
   ".selected-word-container"
 );
@@ -52,42 +53,29 @@ function fetchData(query) {
       return response.json();
     })
     .then(body => {
-      synonymInput.value = query;
-      synonyms = body.documents[0].synonyms;
-      antonyms = body.documents[0].antonyms;
-      definition = body.documents[0].definition;
-      printInformation(query);
+      if (body.documents.length === 0) {
+        console.log("hee");
+        noResultsContainer.style.display = "block";
+      } else {
+        noResultsContainer.style.display = "none";
+        synonymInput.value = query;
+        synonyms = body.documents[0].synonyms;
+        antonyms = body.documents[0].antonyms;
+        definition = body.documents[0].definition;
+        printInformation(query);
+      }
     });
 }
 
 function validateSelection(str) {
   const valid = /^[a-zA-Z\s\-\_]+$/;
-  const secondTest = /[a-zA-Z\-\_]+/;
-  if (valid.test(str) && secondTest.test(str)) {
+  if (valid.test(str)) {
     validInput = true;
-    const selected = removeSpaces(str);
     errorContainer.style.display = "none";
-    synonymInput.value = selected;
+    synonymInput.value = str.trim();
   } else {
     errorContainer.style.display = "block";
     validInput = false;
-  }
-}
-
-function removeSpaces(str) {
-  if (str.split(" ").length === 1) {
-    return str.split(" ")[0].trim();
-  }
-  if (str.split(" ").length > 1) {
-    const array = str.split(" ");
-    let selected;
-    for (let i = 0; i < array.length; i++) {
-      if (array[i] !== "") {
-        selected = array[i];
-        break;
-      }
-    }
-    return selected.trim();
   }
 }
 
@@ -105,12 +93,17 @@ function printDefinition(str) {
 }
 
 function printSynonyms(arr, str) {
+  let final_string;
   let synonymContainer = document.createElement("div");
   let synonymTitle = document.createElement("span");
   synonymTitle.className = "synonym-title";
   synonymTitle.innerHTML = "Synonyms: ";
   synonymContainer.appendChild(synonymTitle);
   for (let i = 0; i < arr.length; i++) {
+    if (arr[i].includes("_")) {
+      let new_value = arr[i].split("_");
+      arr[i] = new_value.join(" ");
+    }
     let synonym = document.createElement("a");
     synonym.className = "synonym";
     synonym.innerHTML = arr[i];
@@ -129,6 +122,10 @@ function printAntonyms(arr, str) {
   antonymTitle.innerHTML = "Antonyms: ";
   antonymContainer.appendChild(antonymTitle);
   for (let i = 0; i < arr.length; i++) {
+    if (arr[i].includes("_")) {
+      let new_value = arr[i].split("_");
+      arr[i] = new_value.join(" ");
+    }
     let antonym = document.createElement("a");
     antonym.className = "synonym antonym";
     antonym.innerHTML = arr[i];
@@ -154,9 +151,9 @@ function printInformation(str) {
   selectedWordContainer.innerHTML = "";
   validateSelection(str);
   if (validInput) {
-    const removedSpaces = removeSpaces(str);
-    printDefinition(removedSpaces);
-    printSynonyms(synonyms, removedSpaces);
-    printAntonyms(antonyms, removedSpaces);
+    const trimmed = str.trim();
+    printDefinition(trimmed);
+    printSynonyms(synonyms, trimmed);
+    printAntonyms(antonyms, trimmed);
   }
 }

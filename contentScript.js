@@ -3,6 +3,7 @@ let definition = "";
 let synonyms = [];
 let antonyms = [];
 let first = true;
+let error = false;
 
 //synonym container in modal
 let synonymContainer;
@@ -38,12 +39,18 @@ definitionSpan.className = "selected__definition";
 //input
 const synonymInput = document.createElement("input");
 synonymInput.className = "cs-synonym-input";
-synonymInput.placeholder = "enter a word"
+synonymInput.placeholder = "enter a word";
 
 //search button
 const getSynonymsBtn = document.createElement("button");
 getSynonymsBtn.className = "get-synonyms-btn";
 getSynonymsBtn.innerText = "Get Synonyms";
+
+//error container
+let noResultsContainer = document.createElement("div");
+noResultsContainer.className = "no-results-container";
+noResultsContainer.innerText = "Sorry, no results were found.";
+noResultsContainer.style.display = "none";
 
 //powered by
 const powered_by = document.createElement("p");
@@ -60,6 +67,7 @@ modal.appendChild(close);
 modal.appendChild(logo);
 modal.appendChild(synonymInput);
 modal.appendChild(getSynonymsBtn);
+modal.appendChild(noResultsContainer);
 modal.appendChild(definitionContainer);
 
 //append to doc
@@ -67,7 +75,7 @@ document.body.appendChild(modal);
 
 //event listeners
 const close_btn = document.querySelector(".close-modal");
-close_btn.addEventListener("click", e => {
+close_btn.addEventListener("click", () => {
   modal.setAttribute(
     "style",
     "right: -9999px; visibility: hidden; transition: .2s ease-in-out;"
@@ -134,6 +142,10 @@ function printSynonyms(arr, str) {
   synonymTitle.innerHTML = "Synonyms: ";
   synonymContainer.appendChild(synonymTitle);
   for (let i = 0; i < arr.length; i++) {
+    if (arr[i].includes("_")) {
+      let new_value = arr[i].split("_");
+      arr[i] = new_value.join(" ");
+    }
     let synonym = document.createElement("a");
     synonym.className = "synonym";
     synonym.innerHTML = arr[i];
@@ -154,6 +166,10 @@ function printAntonyms(arr, str) {
   antonymTitle.innerHTML = "Antonyms: ";
   antonymContainer.appendChild(antonymTitle);
   for (let i = 0; i < arr.length; i++) {
+    if (arr[i].includes("_")) {
+      let new_value = arr[i].split("_");
+      arr[i] = new_value.join(" ");
+    }
     let antonym = document.createElement("a");
     antonym.className = "synonym antonym";
     antonym.innerHTML = arr[i];
@@ -206,10 +222,17 @@ function fetchData(query) {
       return response.json();
     })
     .then(body => {
-      synonymInput.value = query;
-      synonyms = body.documents[0].synonyms;
-      antonyms = body.documents[0].antonyms;
-      definition = body.documents[0].definition;
-      printInformation(query);
+      if (body.documents.length === 0) {
+        noResultsContainer.style.display = "block";
+        synonymInput.value = query;
+        definitionContainer.innerHTML = "";
+      } else {
+        noResultsContainer.style.display = "none";
+        synonymInput.value = query;
+        synonyms = body.documents[0].synonyms;
+        antonyms = body.documents[0].antonyms;
+        definition = body.documents[0].definition;
+        printInformation(query);
+      }
     });
 }

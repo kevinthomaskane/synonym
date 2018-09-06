@@ -17,6 +17,7 @@
   background-color: white;
   overflow-y: scroll;
   overflow-x: hidden;
+  font-family: "Open Sans", arial, x-locale-body, sans-serif !important;
 }
 
 .injected-modal a:hover {
@@ -34,7 +35,7 @@ a.antonym:hover {
 }
 
 .get-synonyms-btn {
-  width: 120px !important;
+  width: 125px !important;
   text-align: center !important;
   display: block !important;
   margin: 14px auto !important;
@@ -158,13 +159,24 @@ a.antonym:hover {
 }
 
 .antonym-container {
-  position:relative;
+  position: relative;
 }
+
+.no-results-container {
+  display: none;
+  padding: 5px;
+  border: solid 0.5px rgb(247, 129, 129);
+  color: rgb(247, 129, 129);
+  box-shadow: 0 2px 2px rgb(232, 232, 232);
+  border-radius: 2px;
+  margin-bottom: 5px;
+}
+
 .powered-by {
   font-size: 10px;
   font-weight: bold;
   position: absolute;
-  bottom: -100px;
+  bottom: -90px;
   right: -5px;
 }
 

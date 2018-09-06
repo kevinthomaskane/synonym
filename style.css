@@ -89,7 +89,7 @@ h3 {
   font-weight: 300;
 }
 
-.error-message-container {
+.error-message-container, .no-results-container {
   display: none;
   padding: 5px;
   border: solid 0.5px rgb(247, 129, 129);
