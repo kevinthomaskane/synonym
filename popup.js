@@ -15,11 +15,24 @@ let antonyms = [];
 
 const eventListeners = ["click", "keypress"];
 
+let url;
+
+const current_tab = { active: true, currentWindow: true };
+function callback(tabs) {
+  url = tabs[0].url; 
+  console.log(url); 
+}
+chrome.tabs.query(current_tab, callback);
+
 synonymLink.addEventListener("click", () => {
   chrome.tabs.create({ active: true, url: "http://www.synonym.com" });
 });
 
 getSynonymsBtn.addEventListener("click", () => {
+  if (url.includes("chrome") && url.includes("google")){
+    alert("Chrome doesn't allow its extensions to work in the marketplace.")
+    return;
+  }
   if (synonymInput.value.length > 1) {
     const inputWord = synonymInput.value.trim();
     fetchData(inputWord);
@@ -38,6 +51,10 @@ getSynonymsBtn.addEventListener("click", () => {
 });
 
 window.onkeydown = e => {
+  if (url.includes("chrome") && url.includes("google")){
+    alert("Chrome doesn't allow its extensions to work in the marketplace.")
+    return;
+  }
   let key = e.which || e.keyCode;
   if (key === 13) {
     if (synonymInput.value.length > 1) {
